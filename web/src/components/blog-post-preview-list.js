@@ -6,8 +6,7 @@ import React from "react";
 
 function BlogPostPreviewGrid(props) {
   return (
-    <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
+    <div className="mt-20">
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map((node) => (

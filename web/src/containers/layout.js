@@ -6,6 +6,11 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      logo {
+      asset {
+        url
+      }
+    }
     }
   }
 `;
@@ -35,6 +40,7 @@ function LayoutContainer(props) {
       siteTitle={data.site.title}
       onHideNav={handleHideNav}
       onShowNav={handleShowNav}
+      logo={data.site.logo.asset.url}
     />
   );
 }

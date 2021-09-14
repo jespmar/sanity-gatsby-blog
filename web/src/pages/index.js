@@ -34,11 +34,38 @@ export const query = graphql`
     }
   }
 
+  fragment LogoImage on SanityMainImage {
+    crop {
+      _key
+      _type
+      top
+      bottom
+      left
+      right
+    }
+    hotspot {
+      _key
+      _type
+      x
+      y
+      height
+      width
+    }
+    asset {
+      _id
+    }
+  }
+
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
+      logo {
+      asset {
+        url
+      }
+    }
     }
     posts: allSanityPost(
       limit: 6
@@ -89,7 +116,7 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout logo={site.logo.asset.url}>
       <SEO
         title={site.title}
         description={site.description}
