@@ -3,6 +3,7 @@ import BlogPostPreview from "./blog-post-preview";
 import { Link } from "gatsby";
 import React from "react";
 
+
 function BlogPostPreviewGrid(props) {
   return (
     <div className={styles.root}>

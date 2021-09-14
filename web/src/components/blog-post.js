@@ -7,9 +7,12 @@ import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
+
+
 function BlogPost(props) {
   const {
     _rawBody,
+    videoLink,
     authors,
     categories,
     title,

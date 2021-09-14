@@ -78,6 +78,9 @@ const BlogPostTemplate = (props) => {
       )}
 
       {post && <BlogPost {...post} />}
+      <p>
+      Check out my blog!
+    </p>
     </Layout>
   );
 };

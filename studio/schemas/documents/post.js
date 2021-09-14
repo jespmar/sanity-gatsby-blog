@@ -34,6 +34,11 @@ export default {
       title: "Main image",
     },
     {
+      name: "videoLink",
+      type: "string",
+      title: "Video Link",
+    },
+    {
       name: "excerpt",
       type: "excerptPortableText",
       title: "Excerpt",
