@@ -12,6 +12,7 @@ export const query = graphql`
     post: sanityPost(id: { eq: $id }) {
       id
       publishedAt
+      videoLink
       categories {
         _id
         title
@@ -78,9 +79,6 @@ const BlogPostTemplate = (props) => {
       )}
 
       {post && <BlogPost {...post} />}
-      <p>
-      Check out my blog!
-    </p>
     </Layout>
   );
 };

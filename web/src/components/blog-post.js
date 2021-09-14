@@ -6,6 +6,9 @@ import PortableText from "./portableText";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
+import VideoPlayer from "./video-player";
+
+import "../styles/global.css";
 
 
 
@@ -25,8 +28,8 @@ function BlogPost(props) {
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
+              .width(2000)
+              .height(Math.floor((9 / 16) * 2000))
               .fit("crop")
               .auto("format")
               .url()}
@@ -36,8 +39,14 @@ function BlogPost(props) {
       )}
       <Container>
         <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+          <div className="w-full">
+            <h1 className="text-4xl title mb-1 font-bold">{title}</h1>
+            <div className="text-sm mb-3 text-gray-600">
+                {differenceInDays(new Date(publishedAt), new Date()) > 3
+                  ? formatDistance(new Date(publishedAt), new Date())
+                  : format(new Date(publishedAt), "MMMM Mo, yyyy")}
+              </div>
+            <VideoPlayer videoLink={videoLink}/>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </div>
           <aside className={styles.metaContent}>

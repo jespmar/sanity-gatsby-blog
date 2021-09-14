@@ -20,8 +20,8 @@ function BlogPostPreview(props) {
           <img
             className="rounded w-full"
             src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
+              .width(2000)
+              .height(Math.floor((9 / 16) * 2000))
               .auto("format")
               .url()}
             alt={props.mainImage.alt}
