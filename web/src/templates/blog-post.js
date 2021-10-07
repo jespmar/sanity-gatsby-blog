@@ -63,9 +63,6 @@ export const query = graphql`
 `;
 
 const BlogPostTemplate = (props) => {
-  console.log(props);
-  console.log(data);
-
   const { data, errors } = props;
   const post = data && data.post;
   console.log(data);

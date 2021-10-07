@@ -11,7 +11,7 @@ function SectionList(props) {
   // eslint-disable-next-line no-unused-vars
 
   const checkLocationState = () => {
-    if (location.state?.fromFeed)
+    if (location?.state?.fromFeed)
       return <PrivateTest id={location.state.fromFeed} />;
     else if (article) return <FallbackPost slug={article} />;
     else return null;

@@ -5,30 +5,13 @@ import Layout from "../containers/layout";
 import PrivateTest from "../components/private-test";
 import BlogPostTemplate from "../templates/blog-post";
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import SectionList from "../components/section-list";
 
 const client = new ApolloClient({
   uri: "https://39bhl3kb.api.sanity.io/v1/graphql/production/default",
   cache: new InMemoryCache(),
 });
-
-client
-  .query({
-    query: gql`
-      query MyQuery {
-        allPost {
-          title
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
 
 const App = () => {
   return (

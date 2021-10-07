@@ -30,14 +30,15 @@ const Layout = ({
       <div className="w-full max-w-7xl mx-auto">
         <div className="wrapper">
           <div className="sidebar p-4 hidden lg:block w-80">
-            {sections.map((section) => (
-              <Section
-                key={section.id}
-                section={section}
-                set={set}
-                active={active}
-              />
-            ))}
+            {sections &&
+              sections.map((section) => (
+                <Section
+                  key={section.id}
+                  section={section}
+                  set={set}
+                  active={active}
+                />
+              ))}
           </div>
           <div className="main w-full">{children}</div>
           <div className="sidebar p-4 hidden xl:block w-72">Sticky sidebar</div>
