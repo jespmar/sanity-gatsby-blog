@@ -7,10 +7,37 @@ const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       logo {
-      asset {
-        url
+        asset {
+          url
+        }
       }
     }
+    sections: allSanitySection {
+      nodes {
+        title
+        id
+        slug {
+          current
+        }
+        categories {
+          category {
+            title
+            id
+            slug {
+              current
+            }
+            articles {
+              article {
+                title
+                id
+                slug {
+                  current
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
@@ -32,7 +59,6 @@ function LayoutContainer(props) {
       'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
     );
   }
-
   return (
     <Layout
       {...props}
@@ -41,6 +67,7 @@ function LayoutContainer(props) {
       onHideNav={handleHideNav}
       onShowNav={handleShowNav}
       logo={data.site.logo.asset.url}
+      sections={data.sections.nodes}
     />
   );
 }

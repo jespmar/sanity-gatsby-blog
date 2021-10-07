@@ -62,10 +62,10 @@ export const query = graphql`
       description
       keywords
       logo {
-      asset {
-        url
+        asset {
+          url
+        }
       }
-    }
     }
     posts: allSanityPost(
       limit: 6
@@ -88,6 +88,34 @@ export const query = graphql`
         }
       }
     }
+    sections: allSanitySection {
+      nodes {
+        title
+        id
+        slug {
+          current
+        }
+        categories {
+          category {
+            title
+            id
+            slug {
+              current
+            }
+            articles {
+              article {
+                _id
+                title
+                id
+                slug {
+                  current
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -103,6 +131,8 @@ const IndexPage = (props) => {
   }
 
   const site = (data || {}).site;
+  const sections = (data || {}).sections;
+  console.log(sections);
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
         .filter(filterOutDocsWithoutSlugs)
@@ -116,7 +146,7 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout logo={site.logo.asset.url}>
+    <Layout sections={sections.nodes} logo={site.logo.asset.url}>
       <SEO
         title={site.title}
         description={site.description}

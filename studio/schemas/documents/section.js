@@ -1,7 +1,7 @@
 export default {
-  name: "category",
+  name: "section",
   type: "document",
-  title: "Category",
+  title: "Section",
   fields: [
     {
       name: "title",
@@ -23,14 +23,16 @@ export default {
       name: "description",
       type: "text",
       title: "Description",
+      description: "Describe your blog for search engines and social media.",
     },
+
     {
-      name: "articles",
-      title: "Articles",
+      name: "categories",
+      title: "Categories",
       type: "array",
       of: [
         {
-          type: "articleReference",
+          type: "categoryReference",
         },
       ],
     },

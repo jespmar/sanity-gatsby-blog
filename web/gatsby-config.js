@@ -13,6 +13,10 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/app/*`] },
+    },
+    {
       resolve: "gatsby-source-sanity",
       options: {
         ...clientConfig.sanity,

@@ -6,6 +6,10 @@ import Layout from "../containers/layout";
 import Container from "../components/container";
 import SEO from "../components/seo";
 import { toPlainText } from "../lib/helpers";
+// eslint-disable-next-line import/no-unresolved
+import Location from "@reach/router";
+
+console.log(Location);
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
@@ -59,8 +63,12 @@ export const query = graphql`
 `;
 
 const BlogPostTemplate = (props) => {
+  console.log(props);
+  console.log(data);
+
   const { data, errors } = props;
   const post = data && data.post;
+  console.log(data);
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}

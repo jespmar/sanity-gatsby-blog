@@ -3,30 +3,18 @@ import { differenceInDays, formatDistance, format } from "date-fns";
 import AuthorList from "./author-list";
 import Container from "./container";
 import PortableText from "./portableText";
-import React, { useState } from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+import React from "react";
 import VideoPlayer from "./video-player";
 
 import "../styles/global.css";
 
-function BlogPost(props) {
-  const {
-    _rawBody,
-    videoLink,
-    authors,
-    categories,
-    title,
-    mainImage,
-    publishedAt,
-    id,
-  } = props;
+function PrivatePost(props) {
+  const { bodyRaw, videoLink, authors, categories, title, publishedAt } = props;
 
   // eslint-disable-next-line no-unused-vars
 
   return (
     <article className="w-full">
-
       <Container>
         <div className="w-full">
           <div className="w-full">
@@ -37,7 +25,7 @@ function BlogPost(props) {
                 : format(new Date(publishedAt), "MMMM Mo, yyyy")}
             </div>
             <VideoPlayer videoLink={videoLink} />
-            {_rawBody && <PortableText blocks={_rawBody} />}
+            {bodyRaw && <PortableText blocks={bodyRaw} />}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (
@@ -65,4 +53,4 @@ function BlogPost(props) {
   );
 }
 
-export default BlogPost;
+export default PrivatePost;
