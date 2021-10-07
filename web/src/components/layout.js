@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./header";
-import Icon from "./icon";
 
 import "../styles/layout.css";
 import * as styles from "./layout.module.css";
@@ -28,7 +27,6 @@ const Layout = ({
     />
 
     <div className="w-full">
-
       <div className="w-full max-w-7xl mx-auto">
         <div className="wrapper">
           <div className="sidebar p-4 hidden lg:block w-80">

@@ -3,9 +3,7 @@ import { differenceInDays, formatDistance, format } from "date-fns";
 import AuthorList from "./author-list";
 import Container from "./container";
 import PortableText from "./portableText";
-import React, { useState } from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+import React from "react";
 import VideoPlayer from "./video-player";
 
 import "../styles/global.css";
@@ -17,16 +15,13 @@ function BlogPost(props) {
     authors,
     categories,
     title,
-    mainImage,
     publishedAt,
-    id,
   } = props;
 
   // eslint-disable-next-line no-unused-vars
 
   return (
     <article className="w-full">
-
       <Container>
         <div className="w-full">
           <div className="w-full">

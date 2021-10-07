@@ -5,7 +5,6 @@ import "../styles/global.css";
 import PrivatePost from "./private-post";
 
 function PrivateTest(props) {
-  const { id } = props;
   const EXCHANGE_RATES = gql`
     query MyQuery {
       Post(id: "${props.id}") {
@@ -54,7 +53,7 @@ function PrivateTest(props) {
     }
   `;
 
-  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  const { data } = useQuery(EXCHANGE_RATES);
 
   // eslint-disable-next-line no-unused-vars
   console.log(data);

@@ -2,7 +2,6 @@ import { useQuery, gql } from "@apollo/client";
 import React from "react";
 
 import "../styles/global.css";
-import PrivatePost from "./private-post";
 import PrivateTest from "./private-test";
 
 function FallbackPost(props) {
@@ -18,7 +17,7 @@ function FallbackPost(props) {
     }
   `;
 
-  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  const { loading, data } = useQuery(EXCHANGE_RATES);
 
   // eslint-disable-next-line no-unused-vars
   console.log(data);
@@ -31,6 +30,7 @@ function FallbackPost(props) {
             return <PrivateTest key={post._id} id={post._id} />;
           } else return null;
         })}
+      {loading && <p>Loading</p>}
     </div>
   );
 }

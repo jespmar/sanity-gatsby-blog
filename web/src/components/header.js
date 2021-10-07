@@ -3,11 +3,10 @@ import React from "react";
 import { cn } from "../lib/helpers";
 import Icon from "./icon";
 
-
 import * as styles from "./header.module.css";
 import "../styles/global.css";
 
-const Header = ({ showNav, siteTitle, logo }) => (
+const Header = ({ showNav, logo }) => (
   <div className="text-white bg-blue-800 shadow-md z-50 w-full px-5 py-2">
     <div className="max-w-7xl mx-auto">
       <div className="w-full flex justify-between">
@@ -16,7 +15,7 @@ const Header = ({ showNav, siteTitle, logo }) => (
         </Link>
 
         <Link className="self-center font-semibold" to="/">
-        <button
+          <button
             className="self-center bg-gray-800 p-2 rounded text-white block lg:hidden"
             // </div>onClick={showNav ? onHideNav : onShowNav}
           >

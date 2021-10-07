@@ -1,8 +1,7 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import { UserContext } from "../context/user";
 
-const Category = ({ category, active, sectionSlug }) => {
+const Category = ({ category, sectionSlug }) => {
   // eslint-disable-next-line no-unused-vars
   const [current, set] = useState();
 
