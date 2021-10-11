@@ -18,7 +18,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <Layout>
         <Router basepath="/app">
-          <PrivateTest path="/profile/:id" />
+          <PrivateTest path="/doc/:id" />
           <SectionList path="/docs/:section" />
           <SectionList path="/docs/:section/:category" />
           <SectionList path="/docs/:section/:category/:article" />

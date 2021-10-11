@@ -9,7 +9,6 @@ function PrivateTest(props) {
     query MyQuery {
       Post(id: "${props.id}") {
       _id
-      publishedAt
       videoLink
       categories {
         _id
@@ -53,12 +52,19 @@ function PrivateTest(props) {
     }
   `;
 
-  const { data } = useQuery(EXCHANGE_RATES);
+  const { data, loading } = useQuery(EXCHANGE_RATES);
 
   // eslint-disable-next-line no-unused-vars
   console.log(data);
 
-  return <div>{data && <PrivatePost {...data.Post} />}</div>;
+  return (
+    <div>
+      {data && <PrivatePost {...data.Post} />}
+      {loading && (
+        <div className="w-full p-5 text-center">Laddar innehåll...</div>
+      )}
+    </div>
+  );
 }
 
 export default PrivateTest;

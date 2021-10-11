@@ -11,14 +11,10 @@ import { responsiveTitle1 } from "../components/typography.module.css";
 
 export const query = graphql`
   query ArchivePageQuery {
-    posts: allSanityPost(
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
+    posts: allSanityPost {
       edges {
         node {
           id
-          publishedAt
           mainImage {
             ...SanityImage
             alt

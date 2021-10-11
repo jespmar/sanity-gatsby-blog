@@ -19,6 +19,7 @@ import authorReference from "./objects/authorReference";
 import section from "./documents/section";
 import categoryReference from "./objects/categoryReference";
 import articleReference from "./objects/articleReference";
+import videoLink from "./objects/videoLink";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,6 +42,7 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     excerptPortableText,
+    videoLink,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

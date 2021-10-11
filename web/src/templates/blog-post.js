@@ -15,15 +15,10 @@ export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
     post: sanityPost(id: { eq: $id }) {
       id
-      publishedAt
       videoLink
       categories {
         _id
         title
-      }
-      mainImage {
-        ...SanityImage
-        alt
       }
       title
       slug {

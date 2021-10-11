@@ -30,7 +30,9 @@ function FallbackPost(props) {
             return <PrivateTest key={post._id} id={post._id} />;
           } else return null;
         })}
-      {loading && <p>Loading</p>}
+      {loading && (
+        <div className="w-full p-5 text-center">Laddar innehåll...</div>
+      )}
     </div>
   );
 }

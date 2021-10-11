@@ -5,11 +5,11 @@ import {
   filterOutDocsWithoutSlugs,
   mapEdgesToNodes,
 } from "../lib/helpers";
-import BlogPostPreviewList from "../components/blog-post-preview-list";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import BlogPostPreviewGrid from "../components/blog-post-preview-grid";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -67,15 +67,11 @@ export const query = graphql`
         }
       }
     }
-    posts: allSanityPost(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
+    posts: allSanityPost {
       edges {
         node {
           id
-          publishedAt
+          _id
           mainImage {
             ...SanityImage
             alt
@@ -155,7 +151,7 @@ const IndexPage = (props) => {
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         {postNodes && (
-          <BlogPostPreviewList
+          <BlogPostPreviewGrid
             title="Latest blog posts"
             nodes={postNodes}
             browseMoreHref="/archive/"

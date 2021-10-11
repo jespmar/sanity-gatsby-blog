@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 export default {
   name: "post",
   type: "document",
@@ -21,12 +19,6 @@ export default {
         source: "title",
         maxLength: 96,
       },
-    },
-    {
-      name: "publishedAt",
-      type: "datetime",
-      title: "Published at",
-      description: "This can be used to schedule post for publishing",
     },
     {
       name: "mainImage",
@@ -110,15 +102,6 @@ export default {
       publishedAt: "publishedAt",
       slug: "slug",
       media: "mainImage",
-    },
-    prepare({ title = "No title", publishedAt, slug = {}, media }) {
-      const dateSegment = format(new Date(publishedAt), "yyyy/MM");
-      const path = `/${dateSegment}/${slug.current}/`;
-      return {
-        title,
-        media,
-        subtitle: publishedAt ? path : "Missing publishing date",
-      };
     },
   },
 };
